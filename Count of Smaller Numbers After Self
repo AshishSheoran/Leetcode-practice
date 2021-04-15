@@ -23,3 +23,70 @@ var countSmaller = function(nums) {
     
     return result;
 };
+
+
+__OR__
+
+var countSmaller = function(nums) {
+    var countAfterSelf = [],
+        sortedArr = [],
+        i;
+    
+    // Iterate backwards so that the sorted array only contains
+    // numbers to the right of the current number.
+    for (i = nums.length - 1; i >= 0; i--) {
+        // The count of smaller numbers to the right is the index which
+        // the current value got inserted to in the sorted array.
+        countAfterSelf.unshift(insertSorted(sortedArr, nums[i]));
+    }
+    
+    return countAfterSelf;
+};
+
+/*
+ * Insert val into the array in position to keep it sorted ascending by
+ * value. Return the index that val got inserted.
+ */
+function insertSorted (arr, val) {
+    var start = 0,
+        end = arr.length - 1,
+        mid,
+        insertIndex;
+        
+    // If the array is empty or the value is greater than the last element
+    // then all numbers to the right are less than val. Push val to the end
+    // and return the length of the arr before push.
+    if (arr.length === 0 || arr[end] < val) {
+        arr.push(val);
+        return end + 1;
+    }
+    
+    // If val is smaller than the first element, push val to the beginning
+    // and return 0 because nothing to the right is smaller.
+    if (arr[start] >= val) {
+        arr.unshift(val);
+        return 0;
+    }
+    
+    // Find the position where val should be inserted via binary search.
+    while (start + 1 < end) {
+        mid = start + parseInt((end - start) / 2);
+        if (arr[mid] < val) {
+            start = mid + 1;
+        } else {
+            end = mid;
+        }
+    }
+    
+    // Figure out the exact position based on where the binary search stopped.
+    if (arr[start] >= val) {
+        insertIndex = start;
+    } else {
+        insertIndex = end;
+    }
+    
+    // Insert val into that position and return that index. The index here
+    // corresponds to how many elements to the right of val are smaller.
+    arr.splice(insertIndex, 0, val);
+    return insertIndex;
+}
