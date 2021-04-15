@@ -1,0 +1,14 @@
+# Easy (JavaScript)
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var decompressRLElist = function(nums) {
+    let length = nums.length;
+    let result = [];
+    for(let i = 0; i < length; i += 2) {
+        result.push(...new Array(nums[i]).fill(nums[i + 1]));
+    };
+    return result;
+};
