@@ -1,0 +1,25 @@
+# Hard level
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var countSmaller = function(nums) {
+    // Create new array to store the values of nums[]
+    let newNums = [...nums];
+    // Sort the newly created array
+    newNums.sort(function(a, b) { return a-b });
+    
+    let result = [];
+    
+    for(let i = 0; i < nums.length; i++) {
+        let pos = newNums.indexOf(nums[i]);
+        
+        result.push(pos);
+        
+        // Remove the element from sorted Array
+        newNums.splice(pos, 1);
+    }
+    
+    return result;
+};
