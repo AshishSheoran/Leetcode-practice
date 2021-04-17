@@ -1,0 +1,18 @@
+# Easy level (JavaScript)
+
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+    // Convert the number into string and then reverse it
+    let revNum = parseInt(x.toString().split('').reverse().join(''));
+    
+    // Check for negativity, if negative => add (-) sign in front
+    if (x < 0) {
+        revNum *= -1;
+    }
+    
+    // Check for the revNum being inside the 32-bit integer range and then return it
+    return (revNum > -1 * Math.pow(2, 31) && revNum < Math.pow(2, 31)-1) ? revNum : 0;
+};
