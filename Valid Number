@@ -1,0 +1,11 @@
+# Using the built-in libraries
+
+let validNumber = function(num) {
+
+    // Will check for our string's range and validation
+    if(s === 'Infinity' || s === '-Infinity' || s === '+Infinity') {
+        return false;
+    } else {
+        return !isNaN(s);       // Check for string being a valid number/integer.
+    }
+}
