@@ -1,0 +1,18 @@
+# Using JavaScript
+
+/**
+ * @param {number} x
+ * @param {number} y
+ * @return {number}
+ */
+var hammingDistance = function(x, y) {
+    return (x ^ y).toString(2).replace(/0/g, '').length;
+};
+
+/* First we find the XOR of the two numbers,
+   Then, we that that value to a string
+   and by removing the existing zeroes,
+   we can find the remaining 1's present the result 
+   and return the length.
+*/
+/* For Example, XOR of 1 & 4 (0001 & 0100) will be 5 (0101). */
