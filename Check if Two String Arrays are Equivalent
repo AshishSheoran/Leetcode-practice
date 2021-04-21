@@ -1,0 +1,33 @@
+__EASY__ JavaScript
+
+/**
+ * @param {string[]} word1
+ * @param {string[]} word2
+ * @return {boolean}
+ */
+var arrayStringsAreEqual = function(word1, word2) {
+    if(!word1.length || !word2.length) {
+        return false;
+    }
+    
+    var str1='', str2='';
+    
+    if(word1.length > 1) {
+        for(let i = 0; i < word1.length; i++) {
+            str1 += word1[i];
+        }
+    } else {
+        str1 = word1[0];
+    }
+    
+    if(word2.length > 1) {
+        for(let i = 0; i < word2.length; i++) {
+            str2 += word2[i];
+        }
+    } else {
+        str2 = word2[0];
+    }
+    console.log(str1, str2);
+    
+    return str1 === str2 ? true : false;
+};
