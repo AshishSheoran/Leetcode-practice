@@ -1,0 +1,26 @@
+__EASY__ JAVASCRIPT
+
+var kidsWithCandies = function(candies, extraCandies) {
+    // To get the highest value of the candies present in the array
+    var maximum = Math.max(...candies);
+    var result = [];
+    
+    for(let i = 0; i < candies.length; i++) {
+    
+        // Check if the given number can be bigger than the maximum
+        if(candies[i] + extraCandies >= maximum) {
+            result.push(true);
+        } else {
+            result.push(false);
+        }
+    }
+    
+    return result;
+}
+
+OR
+
+var kidsWithCandies = function(candies, extraCandies) {
+  var maximum = Math.max(...candies);
+  return candies.map(candy => candy + extraCandies >= maximum);
+}
