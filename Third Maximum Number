@@ -1,0 +1,21 @@
+# EASY LEVEL  (JavaScript)
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var thirdMax = function(nums) {
+    // Get the unique values out of the array
+    let unique = [...new Set(nums)];
+    
+    // If length is less than 3, return the maximum value
+    if(unique.length < 3) {
+        return Math.max(...nums);
+    }
+    
+    // Sort the array with unique values, so we can return 3rd maximum number
+    var sortedArray = unique.sort((a,b) => a - b);
+    
+    // Retrun the last 3rd element from the sorted array.
+    return sortedArray[sortedArray.length -3];
+};
