@@ -1,0 +1,29 @@
+__Medium-Level__ JavaScript
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+function countSubstrings(s) {
+    let count = 0;
+    
+    for(let i = 0; i < s.length; i++) {
+        for(let j = i; j < s.length; j++) {
+            count += isPalindrome(s, i, j) ? 1: 0;
+        }
+    }
+    
+    return count;
+}
+
+function isPalindrome(s, left, right) {
+    while(left < right) {
+        if(s.charAt(left) !== s.charAt(right)) {
+            return false;
+        }
+        
+        ++left;
+        --right;
+    }
+    return true;
+}
