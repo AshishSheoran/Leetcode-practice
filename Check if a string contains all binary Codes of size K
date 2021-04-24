@@ -1,0 +1,18 @@
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {boolean}
+ */
+var hasAllCodes = function(s, k) {
+    let set = new Set();
+    
+    // Store all the possible k digit binary codes into the set.
+    for(let i = 0; i <= s.length - k; i++) {
+        set.add(s.substr(i, k));
+    }
+    
+    // Since there are two possible char for each place: 0 and 1
+    // So, there will be 2^k possible binary codes.
+    // so, if set's size is 2^k, then return true else false.
+    return set.size >= Math.pow(2, k);
+};
