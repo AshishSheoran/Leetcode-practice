@@ -1,0 +1,9 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+    let arr = s.split(' ').reverse().join(' ').toString().replace(/\s+/g, ' ').trim();
+
+    return (arr); 
+};
