@@ -1,0 +1,26 @@
+# EASY LEVEL.  JavaScript
+
+/**
+ * @param {string[]} words
+ * @return {string[]}
+ */
+var stringMatching = function(words) {
+    let res = [];
+    
+    // Find the substring and store it into res[]
+    for(let i = 0; i < words.length; i++) {
+        for(let j = 0; j < words.length; j++) {
+            if(i === j) {
+                continue;
+            }
+            if(words[i].includes(words[j])) {
+                res.push(words[j]);
+            }
+        }
+    }
+    
+    // To keep the unique values only.
+    let unique = [...new Set(res)];
+    
+    return unique;
+};
