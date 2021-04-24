@@ -1,0 +1,23 @@
+ /**
+ * @param {string} s
+ * @return {number}
+ */
+var balancedStringSplit = function(s) {
+    let rCount = 0;
+    let lCount = 0;
+    let count = 0;
+    
+    if(!s.length || s.length == 1) {
+        return 'not a balanced string';
+    }
+    
+    for(let x of s) {
+        x === 'R' ? rCount++ : lCount++;
+        
+        if(rCount === lCount) {
+            count++;
+        }
+    }
+    
+    return count;
+};
