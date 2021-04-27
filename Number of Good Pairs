@@ -1,0 +1,36 @@
+# EASY LEVEL
+
+// This method is using objects/map
+var numIdenticalPairs = function(nums) {
+      const hash = {}
+
+      for (const num of nums) {
+        if (hash[num]) hash[num]++
+        else hash[num] = 1
+      }
+      
+      
+      // 5(5+1)/2
+      let sum = 0;
+      Object.keys(hash).map(key => 
+          ((hash[key] - 1) * ((hash[key] - 1) + 1)) / 2)
+          .forEach(val => { sum += val });
+          
+      return sum;
+};
+
+// Regular for loop
+
+var numIdenticalPairs = function(nums) {
+    var count = 0;
+    
+    for(let i = 0; i < nums.length; i++) {
+        for(let j = 0; j < nums.length; j++) {
+            if(nums[i] === nums[j] && i < j) {
+                count++;
+            }
+        }
+    }
+    
+    return count;
+};
