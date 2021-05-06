@@ -1,0 +1,18 @@
+# EASY.    JavaScript
+
+/**
+ * @param {number[]} A
+ * @return {number}
+ */
+var repeatedNTimes = function(A) {
+    let n = Math.floor(A.length/2);
+    const map = new Map();
+    
+    for(let x of A) {
+        map.set(x, (map.get(x) || 0) + 1);
+        if(map.get(x) == n) 
+            return x;
+    }
+    
+    return -1;
+};
