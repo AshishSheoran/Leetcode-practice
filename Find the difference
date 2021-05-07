@@ -1,0 +1,22 @@
+# EASY
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {character}
+ */
+var findTheDifference = function(s, t) {
+    let arr1 = s.split('');
+    let arr2 = t.split('');
+    
+    for(let i = 0; i < arr1.length; i++) {
+        for(let j = 0; j < arr2.length; j++) {
+            if(arr1[i] === arr2[j]) {
+                arr2.splice(j, 1);
+                break;
+            }
+        }
+    }
+    
+    return arr2.join('');
+};
