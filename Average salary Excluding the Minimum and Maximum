@@ -1,0 +1,19 @@
+# EASY
+
+/**
+ * @param {number[]} salary
+ * @return {number}
+ */
+var average = function(salary) {
+    let min = Math.min(...salary);
+    let max = Math.max(...salary);
+    var sum = 0;
+    
+    for(let sal of salary) {
+        sum += sal;
+    }
+    
+    let div = salary.length - 2;
+    
+    return (sum - min - max)/div;
+};
