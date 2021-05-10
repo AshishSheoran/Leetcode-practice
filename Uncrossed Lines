@@ -1,0 +1,49 @@
+# JavaScript
+
+// Only until 39/74 test cases
+
+var maxUncrossedLines = function(A, B) {
+    var count = 0;
+    var idx = 0;
+    
+    for(let i = 0; i < A.length; i++) {
+        for(let j = idx; j < B.length; j++) {
+            if(A[i] === B[j]) {
+                count++;   
+                idx = j+1;
+                console.log(idx);
+                break;
+            }
+        }
+    }
+    
+    return count;
+    
+};
+
+// All test cases passed
+
+var maxUncrossedLines = function(A, B) {
+    let dp = new Array(A.length+1)
+    
+    for(let i = 0; i < dp.length; i++) {
+        dp[i] = new Array(B.length+1)
+    }
+    
+    dp[0].fill(0)
+    
+    for(let row of dp)
+        row[0] = 0;
+    
+    for(let i = 1; i <= A.length; i++) {
+        for(let j = 1; j <= B.length; j++) {
+            if(A[i-1] === B[j-1]) {
+                dp[i][j] = 1 + dp[i-1][j-1]
+            } else {
+                dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1])
+            }
+        }
+    }
+    
+    return dp[A.length][B.length]
+};
