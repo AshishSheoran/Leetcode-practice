@@ -1,0 +1,50 @@
+# JAVA
+
+class Solution {
+    public int[] sortArrayByParity(int[] nums) {
+        int[] res = new int[nums.length];
+        int begin = 0, end = nums.length-1;
+        
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] % 2 == 0) {
+                res[begin++] = nums[i];
+            } else {
+                res[end--] = nums[i];
+            }
+        }
+        
+        return res;
+        
+        
+        // return Arrays.stream(nums)
+        //              .boxed()
+        //              .sorted((a, b) -> Integer.compare(a%2, b%2))
+        //              .mapToInt(i -> i)
+        //              .toArray();
+    }
+}
+
+
+#   JavaScript
+
+/**
+ * @param {number[]} A
+ * @return {number[]}
+ */
+var sortArrayByParity = function(A) {
+    var arr = [];
+    
+    for(let i = 0; i < A.length; i++) {
+        if(A[i] % 2 === 0) {
+            arr.push(A[i]);
+        }
+    }
+    
+    for(let i = 0; i < A.length; i++) {
+        if(A[i] % 2 !== 0) {
+            arr.push(A[i]);
+        }
+    }
+    
+    return arr;
+};
