@@ -21,3 +21,28 @@ var uniqueOccurrences = function(arr) {
     
     return unique.length === result.length ? true : false;
 };
+
+
+
+# JAVA
+
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        boolean flag = true;
+
+        for(int n : arr) {
+            map.put(n, map.getOrDefault(n, 0) + 1);
+        }
+
+        Set unique = new HashSet(map.values());
+
+        if(unique.size() == map.size()) {
+            flag = true;
+        } else {
+            flag = false;
+        }
+
+        return flag;
+    }
+}
